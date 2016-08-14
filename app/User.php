@@ -30,7 +30,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
-	
+
+	/***************Save the value of user***************************/
 	public static function userSave($requestdata)
 	{ 
 	  $name = $requestdata['name'];
@@ -47,20 +48,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	
 	  $User->save();
 	  
-	  
-	}
-	public static function usergoogleSave($name,$email,$password)
-	{ 
-	  
-	  $User = new User;
-        
-	  $User->name = $name;
-      $User->email = $email;
-	  $User->password = $password;
-	
-	  $User->save();
-	  $insertedId = $User->id;
-	  return $insertedId;
 	  
 	}
 

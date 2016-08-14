@@ -9,7 +9,7 @@ use Cookie;
 
 class LoginController extends Controller {
 
-
+	/***************Login a user***********************/
 	public function doLogin(Request $request)
 	{
 		$validator = Validator::make($request->all(), [
@@ -39,6 +39,7 @@ class LoginController extends Controller {
         );
     // attempt to do the login
     if ($auth) {
+	  //For remember me option
 	  if($remember==1)
 	  {
 	  Cookie::queue('remember', '1', 5400);
@@ -61,11 +62,12 @@ class LoginController extends Controller {
 
 		}
 	}
+	/**************For register page*************************/
 	public function register()
 	{
 		return view('register');
 	}
-	
+	/***************Registration Form Submit************/
 	public function registerSubmit(Request $request)
 	{
 		$rules = array(
@@ -86,11 +88,13 @@ class LoginController extends Controller {
 		$request->session()->flash('alert-success', 'User added successfully');
 		return redirect('/register');
 	}
+	/*************Google Login Page***********************/
 	public function googleLogin()
 	{
 		return view('googleLogin');
 		
 	}
+	/*************Facebook Login Page***********************/
 	public function facebookLogin()
 	{
 		return view('facebookLogin');
