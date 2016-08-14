@@ -1,3 +1,5 @@
+At first clone the git url to the local system.
+
 This is simple user registration.
 
 Login via normal user i.e save in database, login via google. login via facebook.
